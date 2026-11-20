@@ -1,68 +1,86 @@
 import mongoose from 'mongoose';
-import bcrypt from 'bcryptjs';
 
-const userSchema = new mongoose.Schema({
+const orderSchema = new mongoose.Schema({
+    customer: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        default: null
+    },
 
-    name: {
+    customerName: {
         type: String,
-        required: [true, 'Please enter your name'],
+        required: true,
         trim: true,
-        maxlength: 50
+        maxlength: 100
     },
 
     email: {
         type: String,
-        required: [true, 'Please enter your email'],
-        unique: true,
-        lowercase: true,
         trim: true,
-        match: [/^\S+@\S+\.\S+$/, 'Please enter a valid email']
+        lowercase: true,
+        default: ''
+    },
+
+    items: [
+        {
+            food: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: 'Food',
+                required: true
+            },
+            name: {
+                type: String,
+                required: true
+            },
+            price: {
+                type: Number,
+                required: true
+            },
+            quantity: {
+                type: Number,
+                required: true,
+                min: 1
+            }
+        }
+    ],
+
+    totalAmount: {
+        type: Number,
+        required: true,
+        min: 0
+    },
+
+    deliveryAddress: {
+        type: String,
+        required: true,
+        trim: true
     },
 
     phone: {
         type: String,
-        trim: true,
-        default: ''
+        required: true
     },
 
-    password: {
+    paymentMethod: {
         type: String,
-        required: [true, 'Please enter your password'],
-        minlength: [8, 'Password must be at least 8 characters'],
-        select: false
+        enum: ['COD', 'eSewa', 'Khalti'],
+        default: 'COD'
     },
 
-    role: {
+    paymentStatus: {
         type: String,
-        enum: ['customer', 'admin', 'superadmin'],
-        default: 'customer'
+        enum: ['Pending', 'Paid', 'Failed', 'Refunded'],
+        default: 'Pending'
+    },
+
+    orderStatus: {
+        type: String,
+        enum: ['Pending', 'Confirmed', 'Preparing', 'Ready', 'Delivered', 'Cancelled'],
+        default: 'Pending'
     }
 
-}, {
-    timestamps: true
-});
+}, { timestamps: true });
 
+const Order = mongoose.model('Order', orderSchema);
 
-// Password Hashing
-userSchema.pre('save', async function () {
-
-    if (!this.isModified('password')) {
-        return;
-    }
-
-    this.password = await bcrypt.hash(this.password, 10);
-
-});
-
-
-// Compare Password
-userSchema.methods.comparePassword = async function (enteredPassword) {
-
-    return await bcrypt.compare(enteredPassword, this.password);
-
-};
-
-
-const User = mongoose.model('User', userSchema);
-
-export default User;
+export default Order;

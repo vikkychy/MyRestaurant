@@ -1,0 +1,184 @@
+.navbar {
+    width: 100%;
+    background: var(--background);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar-container {
+    max-width: 1250px;
+    margin: auto;
+    padding: 18px 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar-logo {
+    font-size: 25px;
+    font-weight: 800;
+    color: var(--text-primary);
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.navbar-logo span {
+    color: var(--accent);
+}
+
+.navbar-links {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+}
+
+.navbar-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+.navbar-links a:hover,
+.navbar-links a.active {
+    color: var(--accent);
+}
+
+.navbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    background: var(--surface);
+    color: var(--text-primary);
+}
+
+.theme-toggle:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+.cart-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login-button {
+    background: var(--accent);
+    color: white;
+    padding: 11px 23px;
+    border-radius: 7px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login-button:hover {
+    background: var(--accent-hover);
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    cursor: pointer;
+}
+
+@media (max-width: 900px) {
+    .navbar-links {
+        gap: 18px;
+    }
+
+    .navbar-actions {
+        gap: 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar-container {
+        padding: 15px 18px;
+    }
+
+    .menu-toggle {
+        display: block;
+        order: 3;
+    }
+
+    .navbar-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 25px;
+        background: var(--background);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 22px;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .navbar-links.active {
+        display: flex;
+    }
+
+    .navbar-actions {
+        gap: 12px;
+    }
+
+    .cart-button span {
+        display: none;
+    }
+
+    .login-button {
+        padding: 9px 15px;
+    }
+}
+
+@media (max-width: 420px) {
+    .navbar-logo {
+        font-size: 20px;
+    }
+
+    .navbar-container {
+        padding: 14px 12px;
+    }
+}
+
+.cart-button {
+    position: relative;
+}
+
+.cart-count {
+    position: absolute;
+    top: -9px;
+    right: -9px;
+    min-width: 19px;
+    height: 19px;
+    padding: 0 5px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+

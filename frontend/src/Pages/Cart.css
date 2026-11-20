@@ -1,0 +1,243 @@
+/* ==============================
+   CART PAGE
+================================ */
+
+.cart-page {
+    min-height: 100vh;
+    padding: 55px 25px 80px;
+    background: var(--background);
+    color: var(--text-primary);
+}
+
+.cart-container {
+    max-width: 1100px;
+    margin: auto;
+}
+
+.cart-heading {
+    margin-bottom: 40px;
+}
+
+.cart-heading > span {
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.cart-heading h1 {
+    font-size: 36px;
+    margin: 12px 0;
+}
+
+.cart-heading p {
+    color: var(--text-secondary);
+}
+
+.empty-cart {
+    padding: 80px 20px;
+    text-align: center;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    color: var(--text-secondary);
+}
+
+.empty-cart h2 {
+    color: var(--text-primary);
+    margin: 20px 0 10px;
+}
+
+.continue-shopping {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    padding: 12px 20px;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 7px;
+    font-weight: 600;
+}
+
+.cart-items {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.cart-item {
+    display: grid;
+    grid-template-columns: 100px 1fr auto auto;
+    align-items: center;
+    gap: 25px;
+    padding: 20px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+}
+
+.cart-item > img {
+    width: 100px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.cart-item-info span {
+    color: var(--accent);
+    font-size: 12px;
+}
+
+.cart-item-info h3 {
+    margin: 8px 0;
+    color: var(--text-primary);
+}
+
+.cart-item-info strong {
+    color: var(--text-secondary);
+}
+
+.cart-quantity {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.cart-quantity button {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 5px;
+    background: var(--secondary);
+    color: var(--text-primary);
+}
+
+.cart-quantity button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.cart-item-total {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.cart-item-total strong {
+    color: var(--accent);
+    white-space: nowrap;
+}
+
+.remove-cart-item {
+    display: flex;
+    border: none;
+    background: transparent;
+    color: #e05252;
+    padding: 7px;
+}
+
+.cart-summary {
+    max-width: 450px;
+    margin: 30px 0 0 auto;
+    padding: 25px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+}
+
+.cart-summary > div:not(.cart-actions) {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    color: var(--text-secondary);
+}
+
+.cart-summary strong {
+    color: var(--text-primary);
+}
+
+.cart-summary .cart-grand-total {
+    color: var(--accent);
+    font-size: 22px;
+}
+
+.cart-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    border-top: 1px solid var(--border);
+    padding-top: 15px;
+}
+
+.cart-actions .continue-shopping {
+    margin-top: 0;
+}
+
+.clear-cart-button {
+    padding: 12px 18px;
+    background: transparent;
+    color: #e05252;
+    border: 1px solid #e05252;
+    border-radius: 7px;
+    font-weight: 600;
+}
+
+/* ==============================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 750px) {
+    .cart-item {
+        grid-template-columns: 75px 1fr;
+        gap: 15px;
+    }
+
+    .cart-item > img {
+        width: 75px;
+        height: 75px;
+    }
+
+    .cart-quantity,
+    .cart-item-total {
+        grid-column: 2;
+    }
+
+    .cart-item-total {
+        justify-content: space-between;
+    }
+}
+
+@media (max-width: 500px) {
+    .cart-page {
+        padding: 35px 15px 60px;
+    }
+
+    .cart-heading h1 {
+        font-size: 29px;
+    }
+
+    .cart-summary {
+        padding: 18px;
+    }
+}
+
+.checkout-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 22px;
+    border-radius: 8px;
+    background: var(--accent);
+    color: #ffffff;
+    font-weight: 600;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+.checkout-button:hover {
+    opacity: 0.9;
+}

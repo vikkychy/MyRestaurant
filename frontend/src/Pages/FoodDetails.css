@@ -1,0 +1,250 @@
+/* ==============================
+   FOOD DETAILS PAGE
+================================ */
+
+.food-details-page {
+    min-height: 100vh;
+    padding: 45px 25px 80px;
+    background-color: var(--background);
+    color: var(--text-primary);
+    transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.food-details-container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.details-back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-secondary);
+    margin-bottom: 35px;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.details-back-link:hover {
+    color: var(--accent);
+}
+
+.food-details-content {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.details-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px;
+}
+
+.details-image img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+}
+
+.status-available,
+.status-unavailable {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 9px 15px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.status-available {
+    background: #e1f7e9;
+    color: #218448;
+}
+
+.status-unavailable {
+    background: #ffe5e5;
+    color: #c03939;
+}
+
+.details-category {
+    display: inline-block;
+    color: var(--accent);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.details-information h1 {
+    font-size: clamp(32px, 4vw, 45px);
+    margin: 15px 0;
+    color: var(--text-primary);
+}
+
+.details-description {
+    color: var(--text-secondary);
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.details-price {
+    color: var(--accent);
+    font-size: 30px;
+    font-weight: 800;
+    margin-top: 25px;
+}
+
+.details-divider {
+    height: 1px;
+    background: var(--border);
+    margin: 30px 0;
+}
+
+.quantity-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.quantity-control {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 6px 10px;
+}
+
+.quantity-control button {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 5px;
+    background: var(--secondary);
+    color: var(--text-primary);
+}
+
+.quantity-control button:hover:not(:disabled) {
+    background: var(--accent);
+    color: white;
+}
+
+.quantity-control button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.quantity-control strong {
+    min-width: 20px;
+    text-align: center;
+    color: var(--text-primary);
+}
+
+.details-total {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0;
+    border-top: 1px solid var(--border);
+    color: var(--text-primary);
+}
+
+.details-total strong {
+    color: var(--accent);
+    font-size: 21px;
+}
+
+.details-cart-button {
+    width: 100%;
+    padding: 16px;
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 700;
+    transition: background-color 0.2s ease;
+}
+
+.details-cart-button:hover:not(:disabled) {
+    background: var(--accent-hover);
+}
+
+.details-cart-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.details-message,
+.details-error {
+    text-align: center;
+    padding: 100px 20px;
+    color: var(--text-secondary);
+}
+
+.details-error h2 {
+    color: var(--text-primary);
+    margin: 20px 0 10px;
+}
+
+.details-error p {
+    margin-bottom: 25px;
+}
+
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    background: var(--accent);
+    color: white;
+    border-radius: 7px;
+}
+
+/* ==============================
+   RESPONSIVE DESIGN
+================================ */
+
+@media (max-width: 850px) {
+    .food-details-content {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .details-image img {
+        height: 400px;
+    }
+}
+
+@media (max-width: 600px) {
+    .food-details-page {
+        padding: 30px 18px 60px;
+    }
+
+    .details-image img {
+        height: 280px;
+    }
+
+    .details-information h1 {
+        font-size: 30px;
+    }
+
+    .details-price {
+        font-size: 26px;
+    }
+}
